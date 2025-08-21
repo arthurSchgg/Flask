@@ -24,5 +24,5 @@ Possibilidade de comentar nos posts, promovendo interação entre os usuários
 
 E quando for baixar o arquivo tem que abrir no **VSCode** ou alguma **IDE**, o arquivo **"FlaskGamer".**
 
-PROJETO DESENVOLVIDO POR: ARTHUR MIGUEL
+**_PROJETO DESENVOLVIDO POR: ARTHUR MIGUEL_**
 ---------------------------------------
