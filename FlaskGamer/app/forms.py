@@ -1,10 +1,13 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, PasswordField
+from wtforms import StringField, SubmitField, PasswordField, FileField
 from wtforms.validators import DataRequired, Email, EqualTo, ValidationError
 from flask_bcrypt import Bcrypt
 
-from app import db
-from app.models import Contato,User,Post
+from app import db, app 
+from app.models import Contato, User, Post, PostComentarios
+
+import os
+from werkzeug.utils import secure_filename
 
 bcrypt = Bcrypt()
 
@@ -37,12 +40,12 @@ class LoginForm(FlaskForm):
     btnSubmit = SubmitField('Login')
 
     def login(self):
-        #Recuperar o usuário do email
+        
         user = User.query.filter_by(email=self.email.data).first()
-        #Verificar se a senha é valida
+        
         if user:
             if bcrypt.check_password_hash(user.senha, self.senha.data.encode('utf-8')):
-                #retorna o usuário
+                
                 return user
             else:
                 raise Exception('Senha incorreta.')
@@ -68,12 +71,40 @@ class contatoForm(FlaskForm):
 
 class PostForm(FlaskForm):
     mensagem=StringField('Mensagem', validators=[DataRequired()])
+    imagem = FileField('Imagem', validators=[DataRequired()])
     btnSubmit=SubmitField('Enviar')
+    
     def save(self, user_id):
+        imagem = self.imagem.data 
+        nome_seguro = secure_filename(imagem.filename)
         post = Post(
-            mensagem=self.mensagem.data,
-            user_id=user_id
+            mensagem = self.mensagem.data,
+            user_id = user_id,
+            imagem = nome_seguro
+            
         )
-
+        caminho = os.path.join(
+            # pegar a pasta que está nosso projeto
+            os.path.abspath(os.path.dirname(__file__)),
+            # Definir a pasta que configuramos para UPLOAD
+            app.config['UPLOAD_FILES'],
+            # a past que está os POST
+            'post',
+            nome_seguro
+        )
+        imagem.save(caminho)
         db.session.add(post)
         db.session.commit()
+        
+class PostComentarioForm(FlaskForm):
+    comentario = StringField('Comentário', validators=[DataRequired()])
+    btnSubmit = SubmitField('Enviar')
+    
+    def save(self, user_id, post_id):
+        comentario = PostComentarios(
+            comentario=self.comentario.data,
+            user_id=user_id,
+            post_id=user_id
+        )
+        db.session.add(comentario)
+        db.session.commit() 

@@ -20,7 +20,7 @@
                         <tr>
                             <td>{{linha.msg_resumo()}}</td>
                             <td>{{linha.user.nome}}</td>
-                            <td></td>
+                            <td><a href="{{url_for('PostDetail', id=linha.id)}}">Detalhes</a></td>
                             
                         </tr>
                         {% endfor %}
