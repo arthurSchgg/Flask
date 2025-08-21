@@ -19,7 +19,7 @@ Visualização de posts de todos os usuários
 
 Possibilidade de comentar nos posts, promovendo interação entre os usuários
 
-Comandos para instalar o Flask:
+**Comandos para instalar o Flask:**
 
 https://docs.google.com/document/d/164rr3rpKDQ-ATERt09CfFAFPZ1tl12MUyFGDF1n0LPg/edit?tab=t.0
 --------------------------------------------------------------------------------------------
