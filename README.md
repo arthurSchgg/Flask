@@ -18,8 +18,8 @@ Possibilidade de comentar nos posts, promovendo interação entre os usuários
 
 **Comandos para instalar o Flask:**
 
-https://docs.google.com/document/d/164rr3rpKDQ-ATERt09CfFAFPZ1tl12MUyFGDF1n0LPg/edit?tab=t.0
---------------------------------------------------------------------------------------------
+**https://docs.google.com/document/d/164rr3rpKDQ-ATERt09CfFAFPZ1tl12MUyFGDF1n0LPg/edit?tab=t.0**
+
 
 E quando for baixar o arquivo tem que abrir no VSCode ou alguma IDE, o arquivo "FlaskGamer".
 
