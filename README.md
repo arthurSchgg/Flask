@@ -2,9 +2,6 @@
 Estudo de Projeto Flask
 -----------------------
 
-Projeto de Rede Social Simples
-------------------------------
-
 Este projeto é uma aplicação web onde os usuários podem se cadastrar, criar posts e comentar em posts de outros usuários.
 
 **Funcionalidades**
