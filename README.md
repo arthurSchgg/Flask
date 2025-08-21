@@ -1,7 +1,9 @@
 # Flask
 Estudo de Projeto Flask
+-----------------------
 
 Projeto de Rede Social Simples
+------------------------------
 
 Este projeto é uma aplicação web onde os usuários podem se cadastrar, criar posts e comentar em posts de outros usuários.
 
@@ -22,3 +24,6 @@ Comandos para instalar o Flask:
 https://docs.google.com/document/d/164rr3rpKDQ-ATERt09CfFAFPZ1tl12MUyFGDF1n0LPg/edit?tab=t.0
 
 E quando for baixar o arquivo tem que abrir no VSCode ou alguma IDE, o arquivo "FlaskGamer".
+
+PROJETO DESENVOLVIDO POR: ARTHUR MIGUEL
+---------------------------------------
