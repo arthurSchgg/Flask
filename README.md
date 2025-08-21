@@ -1,5 +1,6 @@
-# **Flask**
-Estudo de Projeto Flask
+# **_Flask_**
+
+_Estudo de Projeto Flask_
 -----------------------
 
 Este projeto é uma aplicação web onde os usuários podem se cadastrar, criar posts e comentar em posts de outros usuários.
