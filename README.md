@@ -1,4 +1,4 @@
-**_📒 Lista de Contatos com Flask__**
+**_📒 Lista de Contatos com Flask_**
 ---
 
 Este é um projeto em Flask que implementa uma lista de contatos interativa, onde os usuários podem:
