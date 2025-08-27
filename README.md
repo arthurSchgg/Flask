@@ -3,7 +3,7 @@
 
 Este é um projeto em Flask que implementa uma lista de contatos interativa, onde os usuários podem:
 
-**Criar uma conta e fazer login 🔑**
+**_Criar uma conta e fazer login 🔑_**
 ---
 
 Cadastrar contatos para manter suas informações organizadas
@@ -14,7 +14,7 @@ Os posts podem ser comentados/responsidos 💬
 
 O objetivo é simular uma mini rede social simples, voltada para gerenciamento de contatos.
 
-**⚙️ Tecnologias utilizadas**
+**_⚙️ Tecnologias utilizadas_**
 ---
 
 Python 3.x
@@ -29,7 +29,7 @@ Flask-WTF (formulários e validações)
 
 HTML, CSS e Bootstrap para o front-end
 
-**🔑 Funcionalidades principais**
+**_🔑 Funcionalidades principais_**
 ---
 
 Registro de usuários
@@ -49,12 +49,12 @@ Implementar paginação nos posts
 **_Lista de como baixar o venv e etc_**
 ---
 
-https://docs.google.com/document/d/164rr3rpKDQ-ATERt09CfFAFPZ1tl12MUyFGDF1n0LPg/edit?tab=t.0
+_https://docs.google.com/document/d/164rr3rpKDQ-ATERt09CfFAFPZ1tl12MUyFGDF1n0LPg/edit?tab=t.0_
 
 **_Link do código em funcionamento_**
 ---
 
-https://flask-senai-iris.onrender.com
+_https://flask-senai-iris.onrender.com_
 
-**Projeto desenvolvido por Arthur Miguel Schlichting**
+**_Projeto desenvolvido por Arthur Miguel Schlichting_**
 ---
