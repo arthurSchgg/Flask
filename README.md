@@ -46,5 +46,10 @@ Melhorar o design do front-end
 
 Implementar paginação nos posts
 
+**_Lista de como baixar o venv e etc_**
+---
+
+https://docs.google.com/document/d/164rr3rpKDQ-ATERt09CfFAFPZ1tl12MUyFGDF1n0LPg/edit?tab=t.0
+
 **Projeto desenvolvido por Arthur Miguel Schlichting**
 ---
