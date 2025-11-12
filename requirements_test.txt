@@ -1,0 +1,21 @@
+# === Bibliotecas de Teste (Comissão Técnica) ===
+
+# O cérebro do time
+robotframework
+
+# Para testes de API (do slide)
+robotframework-requests
+robotframework-jsonlibrary
+
+# Para testes de Banco (do slide)
+robotframework-databaselibrary
+
+# Para testes Web UI (do slide)
+robotframework-seleniumlibrary
+
+# === Drivers e Conectores ===
+
+# O driver do seu banco!
+# A DatabaseLibrary precisa disso aqui pra falar com seu banco MySQL.
+# É bom repetir ele aqui pra garantir que o ambiente de teste tenha tudo.
+mysql-connector-python==9.3.0

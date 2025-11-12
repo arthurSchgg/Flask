@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.2 on win32)" generated="2025-11-12T10:11:15.557186" rpa="false" schemaversion="5">
+<suite id="s1" name="Teste Completo" source="C:\Users\arthur_schlichting\Downloads\Flask-main\teste_completo.robot">
+<kw name="Conectar Ao Banco de Dados" type="SETUP">
+<kw name="Connect To Database" owner="DatabaseLibrary">
+<msg time="2025-11-12T10:11:16.070270" level="INFO">Looking for configuration file: 'resources\db.cfg'</msg>
+<msg time="2025-11-12T10:11:16.070441" level="INFO">Configuration file doesn't exist</msg>
+<msg time="2025-11-12T10:11:16.073863" level="INFO">Connect to DB using : sqlite3.connect(database='database.db')</msg>
+<arg>${DB_DRIVER}</arg>
+<arg>${DB_CONNECT_STRING}</arg>
+<doc>Creates a database connection using the DB API 2.0 ``db_module`` and the parameters provided.
+Along with listed commonly used arguments (`db_name`, `db_host` etc.)
+you can set any other DB module specific parameters as key/value pairs.</doc>
+<status status="PASS" start="2025-11-12T10:11:16.069977" elapsed="0.005723"/>
+</kw>
+<status status="PASS" start="2025-11-12T10:11:16.069221" elapsed="0.006793"/>
+</kw>
+<test id="s1-t1" name="Teste 1: Cadastrar Usuário via UI e Verificar no Banco (Selenium + Database)" line="29">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-12T10:11:16.078578" level="INFO">Opening browser 'Chrome' to base url 'http://127.0.0.1:5000/cadastro/'.</msg>
+<arg>${URL_CADASTRO}</arg>
+<arg>${NAVEGADOR}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-12T10:11:16.078208" elapsed="6.649864"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-12T10:11:22.728780" elapsed="0.052977"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>id:nome</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-12T10:11:22.782794" elapsed="0.027477"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-12T10:11:22.812783" level="INFO">Typing text 'Yuri' into text field 'id:nome'.</msg>
+<arg>id:nome</arg>
+<arg>Yuri</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-12T10:11:22.811785" elapsed="0.184113"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-12T10:11:22.997040" level="INFO">Typing text 'Alberto' into text field 'id:sobrenome'.</msg>
+<arg>id:sobrenome</arg>
+<arg>Alberto</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-12T10:11:22.996623" elapsed="0.140844"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-12T10:11:23.138482" level="INFO">Typing text 'yuri.alberto@corinthians.com' into text field 'id:email'.</msg>
+<arg>id:email</arg>
+<arg>yuri.alberto@corinthians.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-12T10:11:23.138101" elapsed="0.113049"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-12T10:11:23.252117" level="INFO">Typing text 'Gol1234' into text field 'id:senha'.</msg>
+<arg>id:senha</arg>
+<arg>Gol1234</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-12T10:11:23.251595" elapsed="0.075895"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-12T10:11:23.327933" level="INFO">Typing text 'Gol1234' into text field 'id:confirmacao_senha'.</msg>
+<arg>id:confirmacao_senha</arg>
+<arg>Gol1234</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-12T10:11:23.327757" elapsed="0.095067"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-12T10:11:23.423362" level="INFO">Clicking button 'id:btnSubmit'.</msg>
+<arg>id:btnSubmit</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-12T10:11:23.423153" elapsed="0.075334"/>
+</kw>
+<kw name="Wait Until Location Is" owner="SeleniumLibrary">
+<arg>${URL_BASE}/</arg>
+<doc>Waits until the current URL is ``expected``.</doc>
+<status status="PASS" start="2025-11-12T10:11:23.499123" elapsed="0.401304"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-11-12T10:11:23.901491" level="INFO">${query} = SELECT email, sobrenome FROM user WHERE nome = 'Yuri'</msg>
+<var>${query}</var>
+<arg>SELECT email, sobrenome FROM user WHERE nome = 'Yuri'</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-11-12T10:11:23.900909" elapsed="0.000656"/>
+</kw>
+<kw name="Query" owner="DatabaseLibrary">
+<msg time="2025-11-12T10:11:23.904286" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;SELECT email, sobrenome FROM user WHERE nome = 'Yuri'&lt;/code&gt;</msg>
+<msg time="2025-11-12T10:11:23.905175" level="INFO">Error occurred: no such table: user</msg>
+<msg time="2025-11-12T10:11:23.905417" level="INFO">Rollback the transaction</msg>
+<msg time="2025-11-12T10:11:23.905748" level="FAIL">OperationalError: no such table: user</msg>
+<var>${resultado_db}</var>
+<arg>${query}</arg>
+<doc>Runs a query with the ``select_statement`` and returns the result as list of rows.
+The type of row values depends on the database module -
+usually they are tuples or tuple-like objects.</doc>
+<status status="FAIL" start="2025-11-12T10:11:23.903841" elapsed="0.024881">OperationalError: no such table: user</status>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${resultado_db[0][0]}</arg>
+<arg>yuri.alberto@corinthians.com</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="NOT RUN" start="2025-11-12T10:11:23.929040" elapsed="0.000037"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${resultado_db[0][1]}</arg>
+<arg>Alberto</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="NOT RUN" start="2025-11-12T10:11:23.929301" elapsed="0.000037"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-11-12T10:11:23.929631" elapsed="2.325133"/>
+</kw>
+<tag>flask_app</tag>
+<tag>ui_e_banco</tag>
+<status status="FAIL" start="2025-11-12T10:11:16.076995" elapsed="10.178149">OperationalError: no such table: user</status>
+</test>
+<test id="s1-t2" name="Teste 2: Validar API Externa (Requests + JSON)" line="61">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-11-12T10:11:26.257295" level="INFO">Creating Session using : alias=minha_sessao_api_externa, url=https://reqres.in/api, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>minha_sessao_api_externa</arg>
+<arg>${API_EXTERNA_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-11-12T10:11:26.257138" elapsed="0.000318"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-11-12T10:11:26.798532" level="INFO">GET Request : url=https://reqres.in/api/users/2 
+ path_url=/api/users/2 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-11-12T10:11:26.798720" level="INFO">GET Response : url=https://reqres.in/api/users/2 
+ status=401, reason=Unauthorized 
+ headers={'Date': 'Wed, 12 Nov 2025 13:11:24 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '27', 'Connection': 'keep-alive', 'Access-Control-Allow-Credentials': 'true', 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization, x-api-key', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Access-Control-Allow-Origin': 'http://localhost:5173', 'Etag': 'W/"1b-FQ1mIOMgD7jlZN53VsiSdXzsYTY"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Ratelimit-Limit': '100', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Remaining': '99', 'Ratelimit-Reset': '60', 'Referrer-Policy': 'strict-origin-when-cross-origin', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=TQffM1OxJnkz6KIw03Es1q6U%2Bq0cbw9OqU7BmRluSOI%3D\\u0026sid=c4c9725f-1ab0-44d8-820f-430df2718e11\\u0026ts=1762953084"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=TQffM1OxJnkz6KIw03Es1q6U%2Bq0cbw9OqU7BmRluSOI%3D&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;ts=1762953084"', 'Server': 'cloudflare', 'Vary': 'Origin, accept-encoding', 'Via': '1.1 heroku-router', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'DENY', 'X-Request-Id': '9132a723-2a01-a061-923f-1ce1486533f3', 'X-Xss-Protection': '1; mode=block', 'cf-cache-status': 'BYPASS', 'CF-RAY': '99d6466aea53a3f6-GRU'} 
+ body={"error":"Missing API key"} 
+ </msg>
+<msg time="2025-11-12T10:11:26.799074" level="INFO">C:\Python\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-11-12T10:11:26.799601" level="FAIL">HTTPError: 401 Client Error: Unauthorized for url: https://reqres.in/api/users/2</msg>
+<var>${resposta}</var>
+<arg>minha_sessao_api_externa</arg>
+<arg>/users/2</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="FAIL" start="2025-11-12T10:11:26.257688" elapsed="0.576432">HTTPError: 401 Client Error: Unauthorized for url: https://reqres.in/api/users/2</status>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${resposta.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="NOT RUN" start="2025-11-12T10:11:26.834458" elapsed="0.000038"/>
+</kw>
+<kw name="To Json" owner="RequestsLibrary">
+<msg time="2025-11-12T10:11:26.834762" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<var>${json_obj}</var>
+<arg>${resposta.content}</arg>
+<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
+<status status="NOT RUN" start="2025-11-12T10:11:26.834727" elapsed="0.000569"/>
+</kw>
+<kw name="Validate Json">
+<arg>${json_obj}</arg>
+<arg>{"data": {"id": 2, "email": "janet.weaver@reqres.in", "first_name": "Janet", "last_name": "Weaver"}}</arg>
+<status status="NOT RUN" start="2025-11-12T10:11:26.835578" elapsed="0.000032"/>
+</kw>
+<tag>exemplo_api</tag>
+<tag>requests_e_json</tag>
+<status status="FAIL" start="2025-11-12T10:11:26.256682" elapsed="0.579191">HTTPError: 401 Client Error: Unauthorized for url: https://reqres.in/api/users/2</status>
+</test>
+<kw name="Desconectar Do Banco de Dados" type="TEARDOWN">
+<kw name="Disconnect From Database" owner="DatabaseLibrary">
+<doc>Disconnects from the database.</doc>
+<status status="PASS" start="2025-11-12T10:11:26.837309" elapsed="0.000154"/>
+</kw>
+<status status="PASS" start="2025-11-12T10:11:26.837116" elapsed="0.000411"/>
+</kw>
+<doc>Exemplo de teste adaptado ao App Flask (WTForms + SQLite).
+Testa UI, Banco de Dados e demonstra API.</doc>
+<status status="FAIL" start="2025-11-12T10:11:15.558620" elapsed="11.278940"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="2" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">exemplo_api</stat>
+<stat pass="0" fail="1" skip="0">flask_app</stat>
+<stat pass="0" fail="1" skip="0">requests_e_json</stat>
+<stat pass="0" fail="1" skip="0">ui_e_banco</stat>
+</tag>
+<suite>
+<stat name="Teste Completo" id="s1" pass="0" fail="2" skip="0">Teste Completo</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-11-12T10:11:26.834762" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+</errors>
+</robot>
